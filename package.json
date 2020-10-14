@@ -1,7 +1,6 @@
 {
   "name": "bot",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "r": "node index.js"
@@ -11,5 +10,18 @@
     "moment": "^2.20.1",
     "moment-duration-format": "^2.2.1",
     "moment-timezone": "^0.5.28"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ggemdog/WjdDnjs-Bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ggemdog/WjdDnjs-Bot/issues"
+  },
+  "homepage": "https://github.com/ggemdog/WjdDnjs-Bot#readme",
+  "description": ""
 }
