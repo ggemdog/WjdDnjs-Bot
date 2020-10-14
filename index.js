@@ -12,7 +12,7 @@ const adminUserId = 250693463065100298;
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: '❌ㅣ점검 및 업데이트' }, status: 'dnd' })
+  client.user.setPresence({ game: { name: '✅ㅣ!help' }, status: 'online' })
 
   let state_list = [
     '!help',
@@ -153,7 +153,7 @@ client.on('message', (message) => {
     let commandList = [
       {name: '!help', desc: '도움말을 확인할 수 있습니다.'},
       {name: 'ping', desc: '현재 핑 상태를 확인할 수 있습니다.'},
-      {name: 'embed', desc: 'embed 예제1를 확인할 수 있습니다.'},
+      {name: 'embed', desc: 'embed 예제를 확인할 수 있습니다.'},
       {name: '!전체공지', desc: 'dm으로 전체 공지 보낼 수 있습니다.'},
       {name: '!전체공지2', desc: 'dm으로 전체 embed 형식으로 공지를 보낼 수 있습니다.'},
       {name: '!청소', desc: '텍스트를 지울 수 있습니다.'},
@@ -188,7 +188,7 @@ client.on('message', (message) => {
     });
   } else if(message.content == '!초대코드') {
     if(message.channel.type == 'dm') {
-      return message.reply('dm에서 사용할 수 없는 명령어 입니다.');
+      return message.reply('❌ㅣdm에서 사용할 수 없는 명령어 입니다.');
     }
     message.guild.channels.get(message.channel.id).createInvite({maxAge: 0}) // maxAge: 0은 무한이라는 의미, maxAge부분을 지우면 24시간으로 설정됨
       .then(invite => {
@@ -267,7 +267,7 @@ client.on('message', (message) => {
     } else {
       message.channel.bulkDelete(parseInt(clearLine)+1)
         .then(() => {
-          AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + "개의 메시지를 삭제했습니다. (이 메세지는 잠시 후에 사라집니다.)ㅣ✅");
+          AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + "개의 메시지를 삭제했습니다. ```(이 메세지는 잠시 후에 사라집니다.)```");
         })
         .catch(console.error)
     }
