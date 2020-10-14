@@ -5,12 +5,12 @@ const moment = require("moment");
 require("moment-duration-format");
 const welcomeChannelName = "👋ㅣ환영합니다";
 const byeChannelName = "👋ㅣ환영합니다";
-const welcomeChannelComment = " ```본 서버에 오신것을 환영합니다. 규칙은 #📜ㅣ규칙 채널을 확인바라며, 꼭 숙지 부탁드립니다.``` ";
-const byeChannelComment = " ```다음에도 또 뵈면 좋겠습니다. 안녕히가십시오.```";
+const welcomeChannelComment = " ```👋ㅣ본 서버에 오신것을 환영합니다. 규칙은 #📜ㅣ규칙 채널을 확인바라며, 꼭 숙지 부탁드립니다.``` ";
+const byeChannelComment = " ```👋ㅣ다음에도 또 뵈면 좋겠습니다. 안녕히가십시오.```";
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: '점검 및 업데이트' }, status: 'dnd' })
+  client.user.setPresence({ game: { name: '❌ㅣ점검 및 업데이트' }, status: 'dnd' })
 });
 
 client.on("guildMemberAdd", (member) => {
@@ -35,7 +35,7 @@ client.on('message', (message) => {
   if(message.author.bot) return;
 
   if(message.content == 'ping') {
-    return message.reply('현재 봇은 `점검` 상태입니다. 점검 상태에서 사용이 가능은 하며, 딜레이가 많이 생기고, 명령어가 나타나지 않을 수 있습니다.');
+    return message.reply('❌ㅣ현재 봇은 `점검` 상태입니다.');
   }
 
   if(message.content == '!si') {
@@ -44,7 +44,7 @@ client.on('message', (message) => {
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
     embed.setColor('#186de6')
     embed.setAuthor('Bot information ( By Wjddnjs )', img)
-    embed.setFooter(`Wjddnjs Bot ❤️`)
+    embed.setFooter(`Wjddnjs Bot ✅`)
     embed.addBlankField()
     embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
     embed.addField('running time', `${duration}`, true);
@@ -99,7 +99,7 @@ client.on('message', (message) => {
     let embed = new Discord.RichEmbed()
       .setAuthor('Help ( By Wjddnjs )', helpImg)
       .setColor('#186de6')
-      .setFooter(`Wjddnjs Bot ❤️`)
+      .setFooter(`Wjddnjs Bot ✅`)
       .setTimestamp()
     
     commandList.forEach(x => {
@@ -139,9 +139,9 @@ client.on('message', (message) => {
     if(message.member != null) { // 채널에서 공지 쓸 때
       let contents = message.content.slice('!전체공지2'.length);
       let embed = new Discord.RichEmbed()
-        .setAuthor('공지 ( By Wjddnjs )')
+        .setAuthor('🤗ㅣ공지 ( By Wjddnjs )')
         .setColor('#186de6')
-        .setFooter(`Wjddnjs Bot ❤️`)
+        .setFooter(`Wjddnjs Bot ✅`)
         .setTimestamp()
   
       embed.addField('공지: ', contents);
@@ -202,7 +202,7 @@ client.on('message', (message) => {
     } else {
       message.channel.bulkDelete(parseInt(clearLine)+1)
         .then(() => {
-          AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + " ```개의 메시지를 삭제하였습니다. (이 메세지는 잠시 후에 자동으로 삭제됩니다.)```");
+          AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + " ```✅ㅣ개의 메시지를 삭제하였습니다. (이 메세지는 잠시 후에 자동으로 삭제됩니다.)```");
         })
         .catch(console.error)
     }
@@ -211,7 +211,7 @@ client.on('message', (message) => {
 
 function checkPermission(message) {
   if(!message.member.hasPermission("MANAGE_MESSAGES")) {
-    message.channel.send(`<@${message.author.id}> ` + "본 명령어는 관리자만 사용할 수 있습니다.")
+    message.channel.send(`<@${message.author.id}> ` + "❌ㅣ본 명령어는 관리자만 사용할 수 있습니다.")
     return true;
   } else {
     return false;
