@@ -10,7 +10,7 @@ const byeChannelComment = " ```👋ㅣ다음에도 또 뵈면 좋겠습니다. �
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: '❌ㅣ점검 및 업데이트' }, status: 'dnd' })
+  client.user.setPresence({ game: { name: '✅ㅣ!help' }, status: 'dnd' })
 });
 
 client.on("guildMemberAdd", (member) => {
@@ -35,7 +35,7 @@ client.on('message', (message) => {
   if(message.author.bot) return;
 
   if(message.content == 'ping') {
-    return message.reply('❌ㅣ현재 봇은 `점검` 상태입니다.');
+    return message.reply('✅ㅣ현재 봇은 `정상` 상태입니다.');
   }
 
   if(message.content == '!si') {
@@ -99,7 +99,7 @@ client.on('message', (message) => {
     let embed = new Discord.RichEmbed()
       .setAuthor('Help ( By Wjddnjs )', helpImg)
       .setColor('#186de6')
-      .setFooter(`Wjddnjs Bot ✅`)
+      .setFooter(`🤗ㅣWjddnjs Bot`)
       .setTimestamp()
     
     commandList.forEach(x => {
@@ -141,7 +141,7 @@ client.on('message', (message) => {
       let embed = new Discord.RichEmbed()
         .setAuthor('🤗ㅣ공지 ( By Wjddnjs )')
         .setColor('#186de6')
-        .setFooter(`Wjddnjs Bot ✅`)
+        .setFooter(`🤗ㅣWjddnjs Bot`)
         .setTimestamp()
   
       embed.addField('공지: ', contents);
@@ -151,9 +151,9 @@ client.on('message', (message) => {
         x.user.send(embed)
       });
   
-      return message.reply('전체 공지를 정상적으로 전송하였습니다.');
+      return message.reply('✅ㅣ전체 공지를 정상적으로 전송하였습니다.');
     } else {
-      return message.reply('채널에서 실행해주시길 바랍니다.');
+      return message.reply('❌ㅣ채널에서 실행해주시길 바랍니다.');
     }
   } else if(message.content.startsWith('!전체공지')) {
     if(checkPermission(message)) return
@@ -164,13 +164,13 @@ client.on('message', (message) => {
         x.user.send(`<@${message.author.id}> ${contents}`);
       });
   
-      return message.reply('전체 공지를 정상적으로 전송하였습니다.');
+      return message.reply('✅ㅣ전체 공지를 정상적으로 전송하였습니다.');
     } else {
-      return message.reply('채널에서 실행해주시길 바랍니다.');
+      return message.reply('❌ㅣ채널에서 실행해주시길 바랍니다.');
     }
   } else if(message.content.startsWith('!청소')) {
     if(message.channel.type == 'dm') {
-      return message.reply('dm에서 사용할 수 없는 명령어 입니다.');
+      return message.reply('❌ㅣdm에서 사용할 수 없는 명령어 입니다.');
     }
     
     if(message.channel.type != 'dm' && checkPermission(message)) return
@@ -179,7 +179,7 @@ client.on('message', (message) => {
     var isNum = !isNaN(clearLine)
 
     if(isNum && (clearLine <= 0 || 100 < clearLine)) {
-      message.channel.send("1부터 100까지의 숫자만 입력해주세요.")
+      message.channel.send("❌ㅣ1부터 100까지의 숫자만 입력해주세요.")
       return;
     } else if(!isNum) { // c @나긋해 3
       if(message.content.split('<@').length == 2) {
