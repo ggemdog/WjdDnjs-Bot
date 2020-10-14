@@ -20,7 +20,7 @@ client.on("guildMemberAdd", (member) => {
 
   welcomeChannel.send(`<@${newUser.id}> ${welcomeChannelComment}\n`);
 
-  member.addRole(guild.roles.find(role => role.name == "게스트"));
+  member.addRole(guild.roles.find(role => role.name == "[ 평민 ]"));
 });
 
 client.on("guildMemberRemove", (member) => {
@@ -40,11 +40,11 @@ client.on('message', (message) => {
 
   if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
-    let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
+    let img = 'https://cdn.discordapp.com/attachments/765725401599180840/765755051595530300/1.PNG';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
     embed.setColor('#186de6')
-    embed.setAuthor('server info of 콜라곰 BOT', img)
-    embed.setFooter(`콜라곰 BOT ❤️`)
+    embed.setAuthor('Bot information ( By Wjddnjs )', img)
+    embed.setFooter(`Wjddnjs Bot ❤️`)
     embed.addBlankField()
     embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
     embed.addField('running time', `${duration}`, true);
@@ -70,21 +70,17 @@ client.on('message', (message) => {
   }
 
   if(message.content == 'embed') {
-    let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
+    let img = 'https://cdn.discordapp.com/attachments/765725401599180840/765755051595530300/1.PNG';
     let embed = new Discord.RichEmbed()
-      .setTitle('타이틀')
+      .setTitle('Wjddnjs Bot')
       .setURL('http://www.naver.com')
-      .setAuthor('나긋해', img, 'http://www.naver.com')
+      .setAuthor('정원', img, 'http://www.naver.com')
       .setThumbnail(img)
       .addBlankField()
-      .addField('Inline field title', 'Some value here')
-      .addField('Inline field title', 'Some value here', true)
-      .addField('Inline field title', 'Some value here', true)
-      .addField('Inline field title', 'Some value here', true)
-      .addField('Inline field title', 'Some value here1\nSome value here2\nSome value here3\n')
+      .addField('본 서버 규칙입니다.', '📜ㅣ규칙')
       .addBlankField()
       .setTimestamp()
-      .setFooter('나긋해가 만듬', img)
+      .setFooter('정원#1566이 만듬', img)
 
     message.channel.send(embed)
   } else if(message.content == '!help') {
@@ -143,9 +139,9 @@ client.on('message', (message) => {
     if(message.member != null) { // 채널에서 공지 쓸 때
       let contents = message.content.slice('!전체공지2'.length);
       let embed = new Discord.RichEmbed()
-        .setAuthor('공지 of 콜라곰 BOT')
+        .setAuthor('공지 ( By Wjddnjs )')
         .setColor('#186de6')
-        .setFooter(`콜라곰 BOT ❤️`)
+        .setFooter(`Wjddnjs Bot ❤️`)
         .setTimestamp()
   
       embed.addField('공지: ', contents);
@@ -155,9 +151,9 @@ client.on('message', (message) => {
         x.user.send(embed)
       });
   
-      return message.reply('공지를 전송했습니다.');
+      return message.reply('전체 공지를 정상적으로 전송하였습니다.');
     } else {
-      return message.reply('채널에서 실행해주세요.');
+      return message.reply('채널에서 실행해주시길 바랍니다.');
     }
   } else if(message.content.startsWith('!전체공지')) {
     if(checkPermission(message)) return
@@ -168,9 +164,9 @@ client.on('message', (message) => {
         x.user.send(`<@${message.author.id}> ${contents}`);
       });
   
-      return message.reply('공지를 전송했습니다.');
+      return message.reply('전체 공지를 정상적으로 전송하였습니다.');
     } else {
-      return message.reply('채널에서 실행해주세요.');
+      return message.reply('채널에서 실행해주시길 바랍니다.');
     }
   } else if(message.content.startsWith('!청소')) {
     if(message.channel.type == 'dm') {
