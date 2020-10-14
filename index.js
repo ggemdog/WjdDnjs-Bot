@@ -362,7 +362,6 @@ function MessageSave(message, modify=false) {
   try {
     channelName = channelName.length > 1 ? channelName.join('') : channelName
   } catch (error) {}
-
 }
 
 client.login(token);
