@@ -3,14 +3,14 @@ const client = new Discord.Client();
 const token = process.argv.length == 2 ? process.env.token : "";
 const moment = require("moment");
 require("moment-duration-format");
-const welcomeChannelName = "안녕하세요";
-const byeChannelName = "안녕히가세요";
-const welcomeChannelComment = "어서오세요.";
-const byeChannelComment = "안녕히가세요.";
+const welcomeChannelName = "👋ㅣ환영합니다";
+const byeChannelName = "👋ㅣ환영합니다";
+const welcomeChannelComment = " ```본 서버에 오신것을 환영합니다. 규칙은 #📜ㅣ규칙 채널을 확인바라며, 꼭 숙지 부탁드립니다.``` ";
+const byeChannelComment = " ```다음에도 또 뵈면 좋겠습니다. 안녕히가십시오.```";
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: '!help를 쳐보세요.' }, status: 'online' })
+  client.user.setPresence({ game: { name: 'Server Manager' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
