@@ -237,27 +237,6 @@ client.on('message', (message) => {
 
 function checkPermission(message) {
   if(!message.member.hasPermission("MANAGE_MESSAGES")) {
-    message.channel.send(`<@${message.author.id}> ` + "명령어를 수행할 관리자 권한을 소지하고 있지않습니다.")
-    return true;
-  } else {
-    return false;
-  }
-}
-
-function changeCommandStringLength(str, limitLen = 8) {
-  let tmp = str;
-  limitLen -= tmp.length;
-
-  for(let i=0;i<limitLen;i++) {
-      tmp += ' ';
-  }
-
-  return tmp;
-}
-
-
-function checkPermission(message) {
-  if(!message.member.hasPermission("MANAGE_MESSAGES")) {
     message.channel.send(`<@${message.author.id}> ` + "❌ㅣ본 명령어는 관리자만 사용할 수 있습니다.")
     return true;
   } else {
