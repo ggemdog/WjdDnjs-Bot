@@ -3,14 +3,39 @@ const client = new Discord.Client();
 const token = process.argv.length == 2 ? process.env.token : "";
 const moment = require("moment");
 require("moment-duration-format");
+const momenttz = require('moment-timezone');
+const MessageAdd = require('./db/message_add.js')
 const welcomeChannelName = "👋ㅣ환영합니다";
 const byeChannelName = "👋ㅣ환영합니다";
-const welcomeChannelComment = " ```👋ㅣ본 서버에 오신것을 환영합니다. 규칙은 #📜ㅣ규칙 채널을 확인바라며, 꼭 숙지 부탁드립니다.``` ";
+const welcomeChannelComment = "```👋ㅣ본 서버에 오신것을 환영합니다. 규칙은 #📜ㅣ규칙 채널을 확인바라며, 꼭 숙지 부탁드립니다.```";
 const byeChannelComment = " ```👋ㅣ다음에도 또 뵈면 좋겠습니다. 안녕히가십시오.```";
+const adminUserId = 250693463065100298;
 
 client.on('ready', () => {
   console.log('켰다.');
   client.user.setPresence({ game: { name: '✅ㅣ!help' }, status: 'online' })
+
+  let state_list = [
+    '!help',
+    '메롱메롱',
+    '에베베베베',
+  ]
+  let state_list_index = 1;
+  let change_delay = 30000; // 이건 초입니당. 1000이 1초입니당.
+
+  function changeState() {
+    setTimeout(() => {
+      // console.log( '상태 변경 -> ', state_list[state_list_index] );
+      client.user.setPresence({ game: { name: state_list[state_list_index] }, status: 'online' })
+      state_list_index += 1;
+      if(state_list_index >= state_list.length) {
+        state_list_index = 0;
+      }
+      changeState()
+    }, change_delay);
+  }
+
+  // changeState();
 });
 
 client.on("guildMemberAdd", (member) => {
@@ -31,8 +56,49 @@ client.on("guildMemberRemove", (member) => {
   byeChannel.send(`<@${deleteUser.id}> ${byeChannelComment}\n`);
 });
 
+client.on("messageUpdate", (message) => {
+  MessageSave(message, true)
+});
+
 client.on('message', (message) => {
+  MessageSave(message)
   if(message.author.bot) return;
+
+  if(message.channel.type == 'dm') {
+    if(message.author.id == adminUserId) return;
+
+    /* not use embed */
+    let msg = message.author+'이(가) 메세지를 보냈습니다.\n'+message.content;
+    client.users.find(x => x.id == adminUserId).send(msg)
+
+    // /* use embed */
+    // let embed = new Discord.RichEmbed()
+    // let img = message.author.avatar ? `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.webp?size=256` : undefined;
+    // let user = message.author.username+'#'+message.author.discriminator
+    // let msg = message.content;
+    // embed.setColor('#186de6')
+    // embed.setAuthor(user+'이(가) 메세지를 보냈습니다.', img)
+    // embed.setFooter(`콜라곰 BOT ❤️`)
+    // embed.addField('메세지 내용', msg, true);
+    // embed.setTimestamp()
+    // client.users.find(x => x.id == adminUserId).send(embed);
+  }
+
+  if(message.content.startsWith('!역할추가')) {
+    if(message.channel.type == 'dm') {
+      return message.reply('❌ㅣdm에서 사용할 수 없는 명령어 입니다.');
+    }
+    if(message.channel.type != 'dm' && checkPermission(message)) return
+
+    if(message.content.split('<@').length == 3) {
+      if(message.content.split(' ').length != 3) return;
+
+      var userId = message.content.split(' ')[1].match(/[\u3131-\uD79D^a-zA-Z^0-9]/ugi).join('')
+      var role = message.content.split(' ')[2].match(/[\u3131-\uD79D^a-zA-Z^0-9]/ugi).join('')
+
+      message.member.guild.members.find(x => x.id == userId).addRole(role);
+    }
+  }
 
   if(message.content == 'ping') {
     return message.reply('✅ㅣ현재 봇은 `정상` 상태입니다.');
@@ -40,7 +106,7 @@ client.on('message', (message) => {
 
   if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
-    let img = 'https://cdn.discordapp.com/attachments/765725401599180840/765755051595530300/1.PNG';
+    let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
     embed.setColor('#186de6')
     embed.setAuthor('Bot information ( By Wjddnjs )', img)
@@ -70,7 +136,7 @@ client.on('message', (message) => {
   }
 
   if(message.content == 'embed') {
-    let img = 'https://cdn.discordapp.com/attachments/765725401599180840/765755051595530300/1.PNG';
+    let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
     let embed = new Discord.RichEmbed()
       .setTitle('Wjddnjs Bot')
       .setURL('http://www.naver.com')
@@ -117,7 +183,7 @@ client.on('message', (message) => {
         })
         .catch((err) => {
           if(err.code == 50013) {
-            message.channel.send('**'+x.channels.find(x => x.type == 'text').guild.name+'** 채널 권한이 없어 초대코드 발행 실패')
+            message.channel.send('**'+x.channels.find(x => x.type == 'text').guild.name+'** ❌ㅣ채널 권한이 없어 초대코드 발행 실패')
           }
         })
     });
@@ -131,7 +197,7 @@ client.on('message', (message) => {
       })
       .catch((err) => {
         if(err.code == 50013) {
-          message.channel.send('**'+message.guild.channels.get(message.channel.id).guild.name+'** 채널 권한이 없어 초대코드 발행 실패')
+          message.channel.send('**'+message.guild.channels.get(message.channel.id).guild.name+'** ❌ㅣ채널 권한이 없어 초대코드 발행 실패')
         }
       })
   } else if(message.content.startsWith('!전체공지2')) {
@@ -202,7 +268,7 @@ client.on('message', (message) => {
     } else {
       message.channel.bulkDelete(parseInt(clearLine)+1)
         .then(() => {
-          AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + "개의 메시지를 삭제했습니다. (이 메세지는 잠시 후에 사라집니다.)ㅣ✅");
+          AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + "개의 메시지를 삭제했습니다. (이 메세지는 잠시 후에 사라집니다.)");
         })
         .catch(console.error)
     }
