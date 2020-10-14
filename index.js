@@ -282,7 +282,7 @@ client.on('message', (message) => {
     console.log(message.mentions);
 
     let userId = message.mentions.users.first().id;
-    let kick_msg = ❌ㅣmessage.author.username+'#'+message.author.discriminator+'이(가) 강퇴시켰습니다.';
+    let kick_msg = message.author.username+'#'+message.author.discriminator+'이(가) 강퇴시켰습니다.';
     
     message.member.guild.members.find(x => x.id == userId).kick(kick_msg)
   } else if(message.content.startsWith('!밴')) {
@@ -295,7 +295,7 @@ client.on('message', (message) => {
     console.log(message.mentions);
 
     let userId = message.mentions.users.first().id;
-    let kick_msg = ❌ㅣmessage.author.username+'#'+message.author.discriminator+'이(가) 강퇴시켰습니다.';
+    let kick_msg = message.author.username+'#'+message.author.discriminator+'이(가) 강퇴시켰습니다.';
 
     message.member.guild.members.find(x => x.id == userId).ban(kick_msg)
   }
