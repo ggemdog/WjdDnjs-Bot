@@ -202,7 +202,7 @@ client.on('message', (message) => {
     } else {
       message.channel.bulkDelete(parseInt(clearLine)+1)
         .then(() => {
-          AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + " ```✅ㅣ개의 메시지를 삭제하였습니다. (이 메세지는 잠시 후에 자동으로 삭제됩니다.)```");
+          AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + "개의 메시지를 삭제하였습니다. (이 메세지는 잠시 후에 자동으로 삭제됩니다.)");
         })
         .catch(console.error)
     }
