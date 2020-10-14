@@ -35,7 +35,7 @@ client.on('message', (message) => {
   if(message.author.bot) return;
 
   if(message.content == 'ping') {
-    return message.reply('현재 봇은 `점검` 상태입니다.');
+    return message.reply('현재 봇은 `점검` 상태입니다. 점검 상태에서 사용이 가능은 하며, 딜레이가 많이 생기고, 명령어가 나타나지 않을 수 있습니다.');
   }
 
   if(message.content == '!si') {
