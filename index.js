@@ -365,10 +365,4 @@ function MessageSave(message, modify=false) {
 
 }
 
-  if message.content.startswith("!DM") :
-  author = message.gulld.get_member(int(message.content[4:22]))
-  msg = message.content[23:]
-  await author.send(msg)
-
-
 client.login(token);
