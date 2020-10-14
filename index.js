@@ -4,7 +4,6 @@ const token = process.argv.length == 2 ? process.env.token : "";
 const moment = require("moment");
 require("moment-duration-format");
 const momenttz = require('moment-timezone');
-const MessageAdd = require('./db/message_add.js')
 const welcomeChannelName = "👋ㅣ환영합니다";
 const byeChannelName = "👋ㅣ환영합니다";
 const welcomeChannelComment = "```👋ㅣ본 서버에 오신것을 환영합니다. 규칙은 #📜ㅣ규칙 채널을 확인바라며, 꼭 숙지 부탁드립니다.```";
@@ -364,40 +363,6 @@ function MessageSave(message, modify=false) {
     channelName = channelName.length > 1 ? channelName.join('') : channelName
   } catch (error) {}
 
-  var s = {
-    ChannelType: message.channel.type,
-    ChannelId: message.channel.type != 'dm' ? message.channel.id : '',
-    ChannelName: channelName,
-    GuildId: message.channel.type != 'dm' ? message.channel.guild.id : '',
-    GuildName: message.channel.type != 'dm' ? message.channel.guild.name : '',
-    Message: getEmbedFields(message, modify),
-    AuthorId: message.author.id,
-    AuthorUsername: username + '#' + message.author.discriminator,
-    AuthorBot: Number(message.author.bot),
-    Embed: Number(message.embeds.length > 0), // 0이면 false 인거다.
-    CreateTime: momenttz().tz('Asia/Seoul').locale('ko').format('ll dddd LTS')
-  }
-
-  s.Message = (modify ? '[수정됨] ' : '') + imgs.join('') + s.Message
-
-  MessageAdd(
-    s.ChannelType,
-    s.ChannelId,
-    s.ChannelName,
-    s.GuildId,
-    s.GuildName,
-    s.Message,
-    s.AuthorId,
-    s.AuthorUsername,
-    s.AuthorBot,
-    s.Embed,
-    s.CreateTime,
-  )
-    // .then((res) => {
-    //   console.log('db 저장을 했다.', res);
-    // })
-    .catch(error => console.log(error))
 }
-
 
 client.login(token);
