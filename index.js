@@ -35,7 +35,7 @@ client.on('message', (message) => {
   if(message.author.bot) return;
 
   if(message.content == 'ping') {
-    return message.reply('현재 봇은 `정상` 상태입니다.');
+    return message.reply('현재 봇은 `점검` 상태입니다.');
   }
 
   if(message.content == '!si') {
