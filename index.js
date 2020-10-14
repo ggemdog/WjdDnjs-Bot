@@ -12,12 +12,12 @@ const adminUserId = 250693463065100298;
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: '✅ㅣ!help' }, status: 'online' })
+  client.user.setPresence({ game: { name: '❌ㅣ점검 및 업데이트' }, status: 'dnd' })
 
   let state_list = [
     '!help',
-    '메롱메롱',
-    '에베베베베',
+    '도움말 !help',
+    'Wjddnjs Bot',
   ]
   let state_list_index = 1;
   let change_delay = 30000; // 이건 초입니당. 1000이 1초입니당.
