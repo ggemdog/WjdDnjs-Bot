@@ -108,7 +108,7 @@ client.on('message', (message) => {
   }
 
   if(message.content == '밥상 애미') {
-    return message.reply('🧍🏻ㅣ밥상 애미는 김치, 청국장, 김치찌개, 닭볶음탕, 미역국, 사골곰탕, 콩나물국 장인입니다.');
+    return message.reply('🧍🏻ㅣ밥상 애미는 김치, 김치찌개, 닭볶음탕, 미역국, 사골곰탕, 콩나물국 장인입니다.');
   }
 
   if(message.content == '태승 몸무게') {
@@ -131,7 +131,7 @@ client.on('message', (message) => {
     return message.reply('🌐ㅣ유튜브의 주소는 다음과 같습니다. https://youtube.com/');
   
 
-  }if(message.content == '!si') {
+  }if(message.content == '!봇 상태') {
     let embed = new Discord.RichEmbed()
     let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
@@ -181,6 +181,7 @@ client.on('message', (message) => {
     let commandList = [
       {name: '!help', desc: '도움말을 확인할 수 있습니다.'},
       {name: 'ping', desc: '현재 핑 상태를 확인할 수 있습니다.'},
+      {name: `!봇 상태`, desc: `봇의 상세적인 상태를 볼 수 있습니다.`},
       {name: '!청소', desc: '텍스트를 지울 수 있습니다.'},
       {name: `네이버`, desc: `네이버의 주소를 알 수 있습니다.`},
       {name: `코로나`, desc: `한국 및 세계 코로나의 확진자 현황을 알 수 있습니다.`},
