@@ -114,8 +114,20 @@ client.on('message', (message) => {
   if(message.content == '태승 몸무게') {
     return message.reply('✅ㅣ태승의 몸무게는 1T 입니다.');
   }
+  
+  if(message.content == '네이버') {
+    return message.reply('✅ㅣ네이버의 주소는 다음과 같습니다. https://naver.com/');
+  }
 
-  if(message.content == '!si') {
+  if(message.content == '코로나') {
+    return message.reply('✅ㅣ코로나의 정보는 다음과 같습니다. https://ncov.mohw.go.kr/');
+  }
+
+  if(message.content == '유튜브') {
+    return message.reply('✅ㅣ유튜브의 주소는 다음과 같습니다. https://youtube.com/');
+  
+
+  }if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
     let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
@@ -172,7 +184,10 @@ client.on('message', (message) => {
       {name: '!초대코드', desc: '해당 채널의 초대 코드를 표시해줍니다.'},
       {name: '!초대코드2', desc: '봇이 들어가있는 모든 채널의 초대 코드를 표시해줍니다.'},
       {name: `밥상 키`, desc: `박상현, 즉 밥상의 키를 알 수 있습니다.`},
-      {name: `태승 몸무게`, desc: `김태승, 즉 태승의 몸무게를 알 수 있습니다.`}
+      {name: `태승 몸무게`, desc: `김태승, 즉 태승의 몸무게를 알 수 있습니다.`},
+      {name: `네이버`, desc: `네이버의 주소를 알 수 있습니다.`},
+      {name: `코로나`, desc: `한국 및 세계 코로나의 확진자 현황을 알 수 있습니다.`},
+      {name: `유튜브`, desc: `유튜브의 주소를 알 수 있습니다.`}
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
