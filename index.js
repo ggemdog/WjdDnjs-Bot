@@ -106,7 +106,11 @@ client.on('message', (message) => {
   if(message.content == '밥상 키') {
     return message.reply('✅ㅣ밥상 키는 쏘대장보다 2cm 작은, 145cm 입니다.');
   }
-  
+
+  if(message.content == '밥상 애미') {
+    return message.reply('✅ㅣ밥상 애미는 김치 장인입니다.');
+  }
+
   if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
     let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
