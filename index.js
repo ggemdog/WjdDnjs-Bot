@@ -103,6 +103,9 @@ client.on('message', (message) => {
     return message.reply('✅ㅣ현재 봇은 `정상` 상태입니다.');
   }
 
+  if(message.content == '밥상 키') {
+    return message.reply('✅ㅣ밥상 키는 쏘대장보다 2cm 작은, 145cm 입니다.');
+
   if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
     let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
