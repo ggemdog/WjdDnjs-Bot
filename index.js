@@ -104,27 +104,27 @@ client.on('message', (message) => {
   }
 
   if(message.content == '밥상 키') {
-    return message.reply('✅ㅣ밥상 키는 쏘대장보다 2cm 작은, 145cm 입니다.');
+    return message.reply('🧍🏻ㅣ밥상 키는 쏘대장보다 2cm 작은, 145cm 입니다.');
   }
 
   if(message.content == '밥상 애미') {
-    return message.reply('✅ㅣ밥상 애미는 김치 장인입니다.');
+    return message.reply('🧍🏻ㅣ밥상 애미는 김치 장인입니다.');
   }
 
   if(message.content == '태승 몸무게') {
-    return message.reply('✅ㅣ태승의 몸무게는 1T 입니다.');
+    return message.reply('🧍🏻ㅣ태승의 몸무게는 1T 입니다.');
   }
   
   if(message.content == '네이버') {
-    return message.reply('✅ㅣ네이버의 주소는 다음과 같습니다. https://naver.com/');
+    return message.reply('🌐ㅣ네이버의 주소는 다음과 같습니다. https://naver.com/');
   }
 
   if(message.content == '코로나') {
-    return message.reply('✅ㅣ코로나의 정보는 다음과 같습니다. http://ncov.mohw.go.kr/');
+    return message.reply('🌐ㅣ코로나의 정보는 다음과 같습니다. http://ncov.mohw.go.kr/');
   }
 
   if(message.content == '유튜브') {
-    return message.reply('✅ㅣ유튜브의 주소는 다음과 같습니다. https://youtube.com/');
+    return message.reply('🌐ㅣ유튜브의 주소는 다음과 같습니다. https://youtube.com/');
   
 
   }if(message.content == '!si') {
