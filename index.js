@@ -120,7 +120,7 @@ client.on('message', (message) => {
   }
 
   if(message.content == '코로나') {
-    return message.reply('✅ㅣ코로나의 정보는 다음과 같습니다. https://ncov.mohw.go.kr/');
+    return message.reply('✅ㅣ코로나의 정보는 다음과 같습니다. http://ncov.mohw.go.kr/');
   }
 
   if(message.content == '유튜브') {
