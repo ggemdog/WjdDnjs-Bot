@@ -111,6 +111,10 @@ client.on('message', (message) => {
     return message.reply('✅ㅣ밥상 애미는 김치 장인입니다.');
   }
 
+  if(message.content == '태승 몸무게') {
+    return message.reply('✅ㅣ태승의 몸무게는 1T 입니다.');
+  }
+
   if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
     let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
@@ -167,6 +171,8 @@ client.on('message', (message) => {
       {name: '!청소', desc: '텍스트를 지울 수 있습니다.'},
       {name: '!초대코드', desc: '해당 채널의 초대 코드를 표시해줍니다.'},
       {name: '!초대코드2', desc: '봇이 들어가있는 모든 채널의 초대 코드를 표시해줍니다.'},
+      {name: `밥상 키`, desc: `박상현, 즉 밥상의 키를 알 수 있습니다.`},
+      {name: `태승 몸무게`, desc: `김태승, 즉 태승의 몸무게를 알 수 있습니다.`}
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
