@@ -12,7 +12,7 @@ const adminUserId = 250693463065100298;
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: '🎃ㅣ모두 즐거운 할로윈 보내세요 !!' }, status: 'online' })
+  client.user.setPresence({ game: { name: '🎃ㅣ즐거운 할로윈 보내세요 !!' }, status: 'online' })
 
   let state_list = [
     '!help',
@@ -125,6 +125,10 @@ client.on('message', (message) => {
   
   if(message.content == '밥상 애비') {
     return message.reply('🧍🏻ㅣ밥상 애비는 잘생겼습니다.');
+  }
+
+  if(message.content == '할로윈') {
+    return message.reply('🎃ㅣ유령이나 괴물 분장을 하고 집집마다 다니며 사탕과 초콜릿을 얻는 날입니다. 이에 맞추어 자그만한 선물을 준비하였습니다. `정원#1566`으로 디엠주시면 월요일 맛있는 사탕이 기다릴겁니다 !!');
   }
 
   if(message.content == '유튜브') {
