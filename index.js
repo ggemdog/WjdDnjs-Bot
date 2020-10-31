@@ -241,7 +241,7 @@ client.on('message', (message) => {
       let contents = message.content.slice('!전체공지'.length);
       message.member.guild.members.array().forEach(x => {
         if(x.user.bot) return;
-        x.user.send(`<@${message.author.id}> ${contents}`);
+        x.user.send(`${contents}`);
       });
   
       return message.reply('✅ㅣ전체 공지를 정상적으로 전송하였습니다.');
@@ -282,7 +282,7 @@ client.on('message', (message) => {
     } else {
       message.channel.bulkDelete(parseInt(clearLine)+1)
         .then(() => {
-          AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + "개의 메세지가 삭제되었습니다. 해당 메세지는 자동삭제됩니다. ( 🤖ㅣBot Version 1.3 )");
+          AutoMsgDelete(message, "```✅ㅣ메세지가 정상 삭제되었습니다. 해당 메세지는 자동삭제됩니다. ( 🤖ㅣBot Version 1.3 )```");
         })
         .catch(console.error)
     }
