@@ -6,8 +6,8 @@ require("moment-duration-format");
 const momenttz = require('moment-timezone');
 const welcomeChannelName = "👋ㅣ환영합니다";
 const byeChannelName = "👋ㅣ환영합니다";
-const welcomeChannelComment = "```👋ㅣ본 서버에 오신것을 환영합니다. 규칙은 #📜ㅣ규칙 채널을 확인바라며, 꼭 숙지 부탁드립니다.ㅣ👋```";
-const byeChannelComment = " ```👋ㅣ다음에도 또 뵈면 좋겠습니다. 안녕히가십시오.ㅣ👋```";
+const welcomeChannelComment = "```👋ㅣ본 서버에 오신것을 환영합니다. 규칙은 #📜ㅣ규칙 채널을 확인바라며, 꼭 숙지 부탁드립니다.```";
+const byeChannelComment = " ```👋ㅣ다음에도 또 뵈면 좋겠습니다. 안녕히가십시오.```";
 const adminUserId = 250693463065100298;
 
 client.on('ready', () => {
@@ -100,23 +100,23 @@ client.on('message', (message) => {
   }
 
   if(message.content == 'ping') {
-    return message.reply('✅ㅣ현재 봇은 `정상` 상태입니다.ㅣ✅');
+    return message.reply('✅ㅣ현재 봇은 `정상` 상태입니다.');
   }
 
   if(message.content == '밥상 키') {
-    return message.reply('🧍🏻ㅣ밥상 키는 쏘대장보다 2cm 작은, 145cm 입니다.ㅣ🧍🏻');
+    return message.reply('🧍🏻ㅣ밥상 키는 쏘대장보다 2cm 작은, 145cm 입니다.');
   }
   
   if(message.content == '네이버') {
-    return message.reply('🌐ㅣ네이버의 주소는 다음과 같습니다. https://naver.com/ㅣ🌐');
+    return message.reply('🌐ㅣ네이버의 주소는 다음과 같습니다. https://naver.com/');
   }
 
   if(message.content == '코로나') {
-    return message.reply('🌐ㅣ코로나의 정보는 다음과 같습니다. http://ncov.mohw.go.kr/ㅣ🌐');
+    return message.reply('🌐ㅣ코로나의 정보는 다음과 같습니다. http://ncov.mohw.go.kr/');
   }
 
   if(message.content == '유튜브') {
-    return message.reply('🌐ㅣ유튜브의 주소는 다음과 같습니다. https://youtube.com/ㅣ🌐');
+    return message.reply('🌐ㅣ유튜브의 주소는 다음과 같습니다. https://youtube.com/');
   
 
   }if(message.content == '!봇 상태') {
@@ -167,18 +167,18 @@ client.on('message', (message) => {
   } else if(message.content == '!help') {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
-      {name: '!help', desc: '✅ㅣ도움말을 확인할 수 있습니다.ㅣ✅'},
-      {name: 'ping', desc: '✅ㅣ현재 핑 상태를 확인할 수 있습니다.ㅣ✅'},
-      {name: `!봇 상태`, desc: `🤖ㅣ봇의 상세적인 상태를 볼 수 있습니다.ㅣ🤖`},
-      {name: '!청소', desc: '❌ㅣ텍스트를 지울 수 있습니다.ㅣ❌'},
-      {name: `네이버`, desc: `🌐ㅣ네이버의 주소를 알 수 있습니다.ㅣ🌐`},
-      {name: `코로나`, desc: `🌐ㅣ한국의 코로나 확진자 현황을 알 수 있습니다.ㅣ🌐`},
-      {name: `유튜브`, desc: `🌐ㅣ유튜브의 주소를 알 수 있습니다.ㅣ🌐`}
+      {name: '!help', desc: '✅ㅣ도움말을 확인할 수 있습니다.'},
+      {name: 'ping', desc: '✅ㅣ현재 핑 상태를 확인할 수 있습니다.'},
+      {name: `!봇 상태`, desc: `🤖ㅣ봇의 상세적인 상태를 볼 수 있습니다.`},
+      {name: '!청소', desc: '❌ㅣ텍스트를 지울 수 있습니다.'},
+      {name: `네이버`, desc: `🌐ㅣ네이버의 주소를 알 수 있습니다.`},
+      {name: `코로나`, desc: `🌐ㅣ한국의 코로나 확진자 현황을 알 수 있습니다.`},
+      {name: `유튜브`, desc: `🌐ㅣ유튜브의 주소를 알 수 있습니다.`}
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
       .setAuthor('Help ( By Wjddnjs )', helpImg)
-      .setColor('#186de6')
+      .setColor('#f869ea')
       .setFooter(`🙇🏻ㅣWjddnjs Bot`)
       .setTimestamp()
     
@@ -197,13 +197,13 @@ client.on('message', (message) => {
         })
         .catch((err) => {
           if(err.code == 50013) {
-            message.channel.send('**'+x.channels.find(x => x.type == 'text').guild.name+'** ❌ㅣ채널 권한이 없어 초대코드 발행을 실패하였습니다.ㅣ❌')
+            message.channel.send('**'+x.channels.find(x => x.type == 'text').guild.name+'** ❌ㅣ채널 권한이 없어 초대코드 발행을 실패하였습니다.')
           }
         })
     });
   } else if(message.content == '!초대코드') {
     if(message.channel.type == 'dm') {
-      return message.reply('❌ㅣdm에서 사용할 수 없는 명령어 입니다.ㅣ❌');
+      return message.reply('❌ㅣdm에서 사용할 수 없는 명령어 입니다.');
     }
     message.guild.channels.get(message.channel.id).createInvite({maxAge: 0}) // maxAge: 0은 무한이라는 의미, maxAge부분을 지우면 24시간으로 설정됨
       .then(invite => {
@@ -211,7 +211,7 @@ client.on('message', (message) => {
       })
       .catch((err) => {
         if(err.code == 50013) {
-          message.channel.send('**'+message.guild.channels.get(message.channel.id).guild.name+'** ❌ㅣ채널 권한이 없어 초대코드 발행을 실패하였습니다.ㅣ❌')
+          message.channel.send('**'+message.guild.channels.get(message.channel.id).guild.name+'** ❌ㅣ채널 권한이 없어 초대코드 발행을 실패하였습니다.')
         }
       })
   } else if(message.content.startsWith('!전체공지2')) {
@@ -231,9 +231,9 @@ client.on('message', (message) => {
         x.user.send(embed)
       });
   
-      return message.reply('✅ㅣ전체 공지를 정상적으로 전송하였습니다.ㅣ✅');
+      return message.reply('✅ㅣ전체 공지를 정상적으로 전송하였습니다.');
     } else {
-      return message.reply('❌ㅣ채널에서 실행해주시길 바랍니다.ㅣ❌');
+      return message.reply('❌ㅣ채널에서 실행해주시길 바랍니다.');
     }
   } else if(message.content.startsWith('!전체공지')) {
     if(checkPermission(message)) return
@@ -244,13 +244,13 @@ client.on('message', (message) => {
         x.user.send(`<@${message.author.id}> ${contents}`);
       });
   
-      return message.reply('✅ㅣ전체 공지를 정상적으로 전송하였습니다.ㅣ✅');
+      return message.reply('✅ㅣ전체 공지를 정상적으로 전송하였습니다.');
     } else {
-      return message.reply('❌ㅣ채널에서 실행할 수 있는 명령어입니다.ㅣ❌');
+      return message.reply('❌ㅣ채널에서 실행할 수 있는 명령어입니다.');
     }
   } else if(message.content.startsWith('!청소')) {
     if(message.channel.type == 'dm') {
-      return message.reply('❌ㅣdm에서 사용할 수 없는 명령어 입니다.❌');
+      return message.reply('❌ㅣdm에서 사용할 수 없는 명령어 입니다.');
     }
     
     if(message.channel.type != 'dm' && checkPermission(message)) return
@@ -259,7 +259,7 @@ client.on('message', (message) => {
     var isNum = !isNaN(clearLine)
 
     if(isNum && (clearLine <= 0 || 100 < clearLine)) {
-      message.channel.send("❌ㅣ1부터 100까지의 숫자만 작동합니다.ㅣ❌")
+      message.channel.send("❌ㅣ1부터 100까지의 숫자만 작동합니다.")
       return;
     } else if(!isNum) { // c @나긋해 3
       if(message.content.split('<@').length == 2) {
@@ -282,13 +282,13 @@ client.on('message', (message) => {
     } else {
       message.channel.bulkDelete(parseInt(clearLine)+1)
         .then(() => {
-          AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + "개의 메세지가 삭제되었습니다. ( 자동삭제 메세지입니다. )");
+          AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + "개의 메세지가 삭제되었습니다. ( Version 1.3 )");
         })
         .catch(console.error)
     }
   } else if(message.content.startsWith('!강퇴')) {
     if(message.channel.type == 'dm') {
-      return message.reply('❌ㅣdm에서 사용할 수 없는 명령어 입니다.ㅣ❌');
+      return message.reply('❌ㅣdm에서 사용할 수 없는 명령어 입니다.');
     }
     
     if(message.channel.type != 'dm' && checkPermission(message)) return
@@ -301,7 +301,7 @@ client.on('message', (message) => {
     message.member.guild.members.find(x => x.id == userId).kick(kick_msg)
   } else if(message.content.startsWith('!밴')) {
     if(message.channel.type == 'dm') {
-      return message.reply('❌ㅣdm에서 사용할 수 없는 명령어 입니다.ㅣ❌');
+      return message.reply('❌ㅣdm에서 사용할 수 없는 명령어 입니다.');
     }
     
     if(message.channel.type != 'dm' && checkPermission(message)) return
@@ -317,7 +317,7 @@ client.on('message', (message) => {
 
 function checkPermission(message) {
   if(!message.member.hasPermission("MANAGE_MESSAGES")) {
-    message.channel.send(`<@${message.author.id}> ` + "❌ㅣ명령어를 수행할 권한이 없습니다. 권한 지급 후 진행 부탁드립니다.ㅣ❌")
+    message.channel.send(`<@${message.author.id}> ` + "❌ㅣ명령어를 수행할 권한이 없습니다. 권한 지급 후 진행 부탁드립니다.")
     return true;
   } else {
     return false;
