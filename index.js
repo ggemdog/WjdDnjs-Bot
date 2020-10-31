@@ -6,13 +6,13 @@ require("moment-duration-format");
 const momenttz = require('moment-timezone');
 const welcomeChannelName = "👋ㅣ환영합니다";
 const byeChannelName = "👋ㅣ환영합니다";
-const welcomeChannelComment = "```👋ㅣ본 서버에 오신것을 환영합니다. 규칙은 #📜ㅣ규칙 채널을 확인바라며, 꼭 숙지 부탁드립니다.```";
-const byeChannelComment = " ```👋ㅣ다음에도 또 뵈면 좋겠습니다. 안녕히가십시오.```";
+const welcomeChannelComment = "```👋ㅣ본 서버에 오신것을 환영합니다. 규칙은 #📜ㅣ규칙 채널을 확인바라며, 꼭 숙지 부탁드립니다.ㅣ👋```";
+const byeChannelComment = " ```👋ㅣ다음에도 또 뵈면 좋겠습니다. 안녕히가십시오.ㅣ👋```";
 const adminUserId = 250693463065100298;
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: '❎ㅣ대규모 패치 하는 중 (봇 이용가능)ㅣ❎' }, status: 'dnd' })
+  client.user.setPresence({ game: { name: '✅ㅣ!help' }, status: 'online' })
 
   let state_list = [
     '!help',
