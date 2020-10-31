@@ -282,7 +282,7 @@ client.on('message', (message) => {
     } else {
       message.channel.bulkDelete(parseInt(clearLine)+1)
         .then(() => {
-          AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + "```개의 메세지가 삭제되었습니다. 해당 메세지는 자동삭제됩니다. ( Bot Version 1.3 )");
+          AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + "개의 메세지가 삭제되었습니다. 해당 메세지는 자동삭제됩니다. ( 🤖ㅣBot Version 1.3 )");
         })
         .catch(console.error)
     }
