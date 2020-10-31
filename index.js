@@ -12,7 +12,7 @@ const adminUserId = 250693463065100298;
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: '❌ㅣ오류 발생' }, status: 'dnd' })
+  client.user.setPresence({ game: { name: '✅ㅣ!help' }, status: 'online' })
 
   let state_list = [
     '!help',
